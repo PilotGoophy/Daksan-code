@@ -1,0 +1,87 @@
+import random
+
+phlth = 100
+ehlth = 100
+lvl = 0
+#lvl up is the variale that will increase the players atack by the level
+if lvl == 0:
+  lvlup = 0
+else:
+  lvlup = lvl + 2
+
+
+#the functions var houses all the global statements for the variables that need to be global
+def var():
+  global phlth
+  global ehlth
+  global lvlup
+
+#the function game introduces you to the game palmon but also allows you to name your pokemon
+def game():
+  print("welcome to the world palmon!")
+  print("where you have a pal to fight to victory with!")
+  print("before you go into your demo fight,")
+  print("what do you want to name your palmon")
+  name = input(">>> ")
+  print(name,",what a nice name")
+  print("now lets fight!")
+  print("")
+  print("")
+  pturn()
+
+
+def pturn():
+  global phlth
+  global ehlth
+
+  patk = 10
+  pheal = 10
+
+  print("<><><><><><><><><><><><><><><><><><><><><><><><>")
+  print("------Type the number to choose the option------")
+  print("     ------1. Normal attack-----")
+  print("      ------2. Normal heal-----")
+  x = input(">>>")
+  if x.lower().strip() == "1":
+    ehlth = ehlth - patk + lvlup
+    print("you attacked the enemy pal")
+    print("phlth =",phlth)
+    print("ehlth =",ehlth)
+    if ehlth == 0 or ehlth < 0:
+      print("You Won!")
+                
+
+
+    elif ehlth != 0 or ehlth > 0:
+      eturn()
+    
+  if x.lower().strip() == "2":
+    phlth = phlth + pheal
+    print("you healed your pal")
+    print("phlth =",phlth)
+    print("ehlth =",ehlth)
+
+
+def eturn():
+  global phlth
+  global ehlth
+  eatk = 10
+  eheal = 10
+  echoice = random.randint(1,2)
+  if echoice == 1:
+    phlth = phlth - eatk
+    print("enemy attacked your pal")
+    print("phlth =",phlth)
+    print("ehlth =",ehlth)
+    pturn()    
+  if echoice == "2":
+    ehlth = ehlth + eheal
+    print("enemy healed their pal")
+    print("phlth =",phlth)
+    print("ehlth =",ehlth)
+    pturn()
+
+
+
+
+start()
